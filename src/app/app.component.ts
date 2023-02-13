@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  name = 'Angular ' + VERSION.major;
+  name = 'waiting ';
   constructor(private http: HttpClient) {}
   fun1() {
     this.http
@@ -16,7 +16,7 @@ export class AppComponent {
         {
           model: 'text-davinci-003',
           prompt: '你好',
-          max_tokens: 7,
+          max_tokens: 100,
           temperature: 0,
           top_p: 1,
           n: 1,
@@ -26,12 +26,13 @@ export class AppComponent {
         {
           headers: {
             Authorization:
-              'Bearer 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',
+              'Bearer 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',
           },
         }
       )
-      .subscribe((data) => {
-        console.log(data);
+      .subscribe((data: any) => {
+        this.name = data.choices;
+        console.log(data, this.name);
       });
   }
 }
