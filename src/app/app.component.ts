@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  name = 'waiting ';
+  name: any = 'waiting ';
   constructor(private http: HttpClient) {}
   fun1() {
     this.http
